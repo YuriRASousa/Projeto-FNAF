@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    #video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+
+    #play-button {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      color: #fff;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="video-container">
+    <iframe id="video" src="https://www.youtube.com/embed/NigLg8fQHF0?controls=0&loop=1" frameborder="0" allowfullscreen></iframe>
+    <button id="play-button">▶</button>
+  </div>
+  <script>
+    var video = document.getElementById('video');
+    var playButton = document.getElementById('play-button');
+
+    playButton.addEventListener('click', function() {
+      video.src += '&autoplay=1';
+      playButton.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
+
